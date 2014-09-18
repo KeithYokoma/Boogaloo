@@ -2,6 +2,9 @@
 
 Task retry manager with a certain back off time.
 
+![](https://farm8.staticflickr.com/7231/7285682482_ebc0f98a8c_k_d.jpg)
+[Photo License](https://creativecommons.org/licenses/by-sa/2.0/)
+
 # Usage
 
 ```java
