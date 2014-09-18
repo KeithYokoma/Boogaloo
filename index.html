@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Boogaloo by KeithYokoma</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Boogaloo</h1>
+        <h2>Task retry manager with a certain back off time.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/KeithYokoma/Boogaloo/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/KeithYokoma/Boogaloo/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/KeithYokoma/Boogaloo" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="boogaloo" class="anchor" href="#boogaloo"><span class="octicon octicon-link"></span></a>Boogaloo</h1>
+
+<p>Task retry manager with a certain back off time.</p>
+
+<p><img src="https://farm8.staticflickr.com/7231/7285682482_ebc0f98a8c_k_d.jpg" alt=""><a href="https://creativecommons.org/licenses/by-sa/2.0/">Photo License</a></p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<div class="highlight highlight-java"><pre><span class="c1">// the task is executed per second and after 10 seconds passed the task is no longer retried to execute.</span>
+<span class="n">Boogaloo</span><span class="o">.</span><span class="na">setup</span><span class="o">().</span><span class="na">constant</span><span class="o">().</span><span class="na">interval</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">until</span><span class="o">(</span><span class="mi">10000</span><span class="o">).</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="nf">BackoffTask</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">shouldRetry</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nf">getCount</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="o">;</span> <span class="c1">// this back off task tries 5 times.</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// some task on the main thread.</span>
+  <span class="o">}</span>
+<span class="o">});</span>
+</pre></div>
+
+<h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>Apache License v2</p>
+
+<pre><code>Copyright (C) 2014 KeithYokoma, Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
