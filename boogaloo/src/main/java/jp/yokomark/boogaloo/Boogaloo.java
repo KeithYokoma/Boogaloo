@@ -58,6 +58,10 @@ public class Boogaloo {
 		return new DecrementalBackoffConfigurator(this);
 	}
 
+	public ExponentialBackoffConfigurator exponential() {
+		return new ExponentialBackoffConfigurator(this);
+	}
+
 	@NonNull
 	Handler getHandler() {
 		return handler;
