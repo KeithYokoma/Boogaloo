@@ -22,6 +22,15 @@ Boogaloo.setup().constant().interval(1000).until(10000).execute(new BackoffTask(
 });
 ```
 
+
+# Download
+
+Gradle:
+
+```
+compile 'com.github.keithyokoma:Boogaloo:1.0.0@aar'
+```
+
 # License
 
 Apache License v2
